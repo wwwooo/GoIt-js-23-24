@@ -1,7 +1,18 @@
 requirejs.config({
     paths: {
-		'jquery' : 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery',
-		tmpl: 'tmpl'
+		'jquery' : 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery',
+        'tmpl': 'lib/tmpl',
+		'model': 'app/model',
+		'view': 'app/view',
+        'controller': 'app/controller'
+    },
+    shin: {
+        'jquery': {
+            exports: 'jQuery'
+        },
+		'template': {
+			exports: 'template'
+        }
     }
 });
 
