@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Ксения Малиновская</title>
-    <script data-main="js/main.js" src="js/require.js"></script>
+    <script data-main="js/main.js" src="js/lib/require.js"></script>
 </head>
 <body>
+    <script type="text/template" id="wrapper-template">
+		<div class="toDoList__wrap">
+			<h3 class="toDoList__title">My family</h3>
+			<ul class="toDoList"></ul>
+			<div class="toDoList__controls">
+				<input type="text" class="toDoList__input-item">
+				<button class="toDoList__btn-add">Add</button>
+			</div>
+		</div>
+	</script>
 
+	<script type="text/template" id="list-template">
+		<% for (var i = 0; i < data.length; i++ ) { %>
+			<li class="toDoList__item">
+    			<span class="toDoList__item-text"><%= data[i] %></span>
+                <span data-value="<%= data[i] %>" class="toDoList__item-edit">(edit)</span>
+    			<span data-value="<%= data[i] %>" class="toDoList__item-delete">x</span>
+			</li>
+		<% }; %>
+    </script>
 </body>
 </html>
