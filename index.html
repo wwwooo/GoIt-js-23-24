@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ксения Малиновская</title>
+    <link rel="stylesheet" href="css/style.css">
     <script data-main="js/main.js" src="js/lib/require.js"></script>
 </head>
 <body>
@@ -21,8 +22,10 @@
 		<% for (var i = 0; i < data.length; i++ ) { %>
 			<li class="toDoList__item">
     			<span class="toDoList__item-text"><%= data[i] %></span>
-                <span data-value="<%= data[i] %>" class="toDoList__item-edit">(edit)</span>
-    			<span data-value="<%= data[i] %>" class="toDoList__item-delete">x</span>
+                <div class="toDoList__config">
+                    <span data-value="<%= data[i] %>" class="toDoList__item-edit">(edit)</span>
+                    <span data-value="<%= data[i] %>" class="toDoList__item-delete">(delete)</span>
+                </div>
 			</li>
 		<% }; %>
     </script>

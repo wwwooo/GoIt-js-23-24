@@ -1,0 +1,41 @@
+.toDoList__wrap {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.toDoList__title {
+   margin: 0;
+   color: rgb(52, 197, 232);
+}
+
+.toDoList {
+    padding: 0;
+    margin: 10px 0;
+}
+
+.toDoList__item {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.toDoList__item-edit {
+    color: #999;
+    cursor: pointer;
+}
+
+.toDoList__input-item {
+    width: 140px;
+    border: 3px solid rgb(52, 197, 232);
+    border-radius: 2px;
+}
+
+.toDoList__btn-add {
+    width: 70px;
+    border: 3px solid rgb(0, 123, 153);
+    border-radius: 4px;
+    background: rgb(41, 200, 238);
+}
