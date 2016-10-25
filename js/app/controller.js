@@ -18,6 +18,8 @@ define(
                 var item = $(this).attr('data-value');
                 var $item = $(this).siblings('.toDoList__item-text');
 
+                view.selection($item[0]);
+                view.changeText($(this), view.tips.edit);
                 $item.attr('contenteditable', 'true').focus().on('keydown', function(event) {
                     if (event.keyCode == 13) {
                         var newItem = $item.text();
@@ -27,8 +29,6 @@ define(
                         view.renderList(model.data);
                     }
                 });
-                view.selection($item[0]);
-                view.changeText($(this), view.tips.edit);
             };
             var removeItem = function() {
                 var item = $(this).attr('data-value');
