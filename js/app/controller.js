@@ -29,8 +29,6 @@ define(
                 });
                 view.selection($item[0]);
                 view.changeText($(this), view.tips.edit);
-                //$(this).text('(press enter for applying changes)');
-
             };
             var removeItem = function() {
                 var item = $(this).attr('data-value');

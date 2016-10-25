@@ -33,11 +33,11 @@ define(
 
             self.tips = {
                 edit: '(press enter for applying changes)'
-            }
+            };
 
             self.changeText = function($elem, text) {
                 $elem.text(text);
-            }
+            };
 
             init();
         };
