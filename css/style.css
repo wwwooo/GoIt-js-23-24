@@ -26,6 +26,12 @@
     word-wrap: break-word;
 }
 
+.toDoList__item-text:focus {
+    padding: 2px;
+    border: 2px solid rgb(189, 0, 0);
+    border-radius: 5px;
+}
+
 .toDoList__item-edit,
 .toDoList__item-delete {
     color: #999;

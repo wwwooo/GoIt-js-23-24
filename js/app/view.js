@@ -22,15 +22,7 @@ define(
                 var list = tmpl($('#list-template').html(), {data: data});
                 self.elements.listContainer.html(list);
             };
-
-            self.selection = function(elem) {
-                var select = window.getSelection();
-                var range = document.createRange();
-
-                range.selectNodeContents(elem);
-                select.addRange(range);
-            };
-
+            
             init();
         };
 

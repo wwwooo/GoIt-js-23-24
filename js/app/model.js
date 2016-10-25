@@ -27,9 +27,7 @@ define(
             };
 
             self.editItem = function(oldItem, newItem) {
-                if (newItem === '') {
-                    self.removeItem(oldItem)
-                } else {
+                if (newItem) {
                     var index = self.data.indexOf(oldItem);
                     self.data[index] = newItem;
                 }

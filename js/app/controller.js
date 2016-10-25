@@ -25,8 +25,7 @@ define(
                     view.renderList(model.data);
                 };
 
-                $(this).text('*edit*')
-                view.selection($item[0]);
+                $(this).text('*edit*');
                 $item.attr('contenteditable', 'true').focus().on('keydown', function(e) {
                     if (e.keyCode == 13) {
                         closeEditItem();
@@ -34,9 +33,10 @@ define(
                     }
                 });
 
-                $(document).one('mousedown', function(e) {
-                    if ($(".toDoList__item-text").has(e.target).length === 0) {
+                $(document).on('mousedown', function(e) {
+                    if (e.target != $item[0] && !$item.has(e.target).length) {
                         closeEditItem();
+                        $(document).off('mousedown');
                     }
                 });
             };
