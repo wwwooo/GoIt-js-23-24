@@ -10,8 +10,8 @@ define(
                 if (item.length === 0) {
                     return;
                 }
-
                 self.data.push(item);
+
                 return self.data;
             };
 
@@ -21,15 +21,19 @@ define(
                 if (index === -1) {
                     return;
                 }
-
                 self.data.splice(index, 1);
+
                 return self.data;
             };
 
             self.editItem = function(oldItem, newItem) {
-                var index = self.data.indexOf(oldItem);
+                if (newItem === '') {
+                    self.removeItem(oldItem)
+                } else {
+                    var index = self.data.indexOf(oldItem);
+                    self.data[index] = newItem;
+                }
 
-                self.data[index] = newItem;
                 return self.data;
             };
         };

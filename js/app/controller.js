@@ -4,32 +4,43 @@ define(
         var Controller = function(model, view) {
             var addItem = function() {
                 var newItem = view.elements.input.val();
-
                 model.addItem(newItem);
                 view.renderList(model.data);
                 view.elements.input.val('');
             };
+
             var addItemEnter = function(event) {
                 if (event.keyCode == 13) {
                     addItem();
                 }
             };
+
             var editItem = function() {
                 var item = $(this).attr('data-value');
                 var $item = $(this).siblings('.toDoList__item-text');
+                var closeEditItem = function() {
+                    var newItem = $item.text();
+                    $(this).attr('contenteditable', 'false');
+                    model.editItem(item, newItem);
+                    view.renderList(model.data);
+                };
 
+                $(this).text('*edit*')
                 view.selection($item[0]);
-                view.changeText($(this), view.tips.edit);
-                $item.attr('contenteditable', 'true').focus().on('keydown', function(event) {
-                    if (event.keyCode == 13) {
-                        var newItem = $item.text();
+                $item.attr('contenteditable', 'true').focus().on('keydown', function(e) {
+                    if (e.keyCode == 13) {
+                        closeEditItem();
+                        $(document).off('mousedown');
+                    }
+                });
 
-                        $(this).attr('contenteditable', 'false');
-                        model.editItem(item, newItem);
-                        view.renderList(model.data);
+                $(document).one('mousedown', function(e) {
+                    if ($(".toDoList__item-text").has(e.target).length === 0) {
+                        closeEditItem();
                     }
                 });
             };
+
             var removeItem = function() {
                 var item = $(this).attr('data-value');
 
